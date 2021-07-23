@@ -1,4 +1,4 @@
-name: Publish NPM Package
+name: Node.js Package
 on:
   release:
     types: [created]
@@ -12,7 +12,6 @@ jobs:
         with:
           node-version: '10.22.x'
           registry-url: 'https://registry.npmjs.org'
-      - name: Publish to registry
-        run: npm publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
