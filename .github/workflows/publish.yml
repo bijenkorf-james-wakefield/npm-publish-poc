@@ -1,10 +1,12 @@
-name: Node.js Package
+name: Publish NPM Package
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ main ]
 jobs:
-  build:
+  publish:
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
