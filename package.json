@@ -10,5 +10,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/bijenkorf-james-wakefield/npm-publish-poc"
+  },
+  "devDependencies": {
+    "@debijenkorf/eslint-config": "^3.3.3"
   }
 }
