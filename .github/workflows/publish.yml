@@ -1,7 +1,7 @@
 name: Publish NPM Package
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   publish:
 
@@ -12,8 +12,13 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
+          always-auth: true
           node-version: '10.22.x'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@debijenkorf'
+      - run: npm ci
+      - env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
